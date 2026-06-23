@@ -1,4 +1,5 @@
-import { connection } from "next/server";
+export const dynamic = "force-dynamic";
+
 import { createClient } from "@/lib/supabase/server";
 import { updateCustomer } from "../../actions";
 import { redirect } from "next/navigation";
@@ -9,7 +10,6 @@ export default async function EditCustomerPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  await connection();
   const { id } = await params;
   const supabase = await createClient();
 

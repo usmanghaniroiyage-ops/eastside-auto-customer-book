@@ -1,4 +1,3 @@
-import { connection } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
@@ -10,7 +9,6 @@ export default async function CustomersLayout({
 }: {
   children: React.ReactNode;
 }) {
-  await connection();
   const supabase = await createClient();
   const {
     data: { user },
